@@ -766,6 +766,40 @@
 	pinctrl-0 = <&pinctrl_i2c3>;
 	status = "okay";
 
+	i2cmux1: mux@70 {
+		compatible = "nxp,pca9646";
+		reg = <0x70>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reset-gpios = <&gpio3 3 GPIO_ACTIVE_LOW>;
+		i2c-mux-idle-disconnect;
+		status = "okay";
+
+		i2c@0 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0>;
+		};
+
+		i2c@1 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <1>;
+		};
+
+		i2c@2 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <2>;
+		};
+
+		i2c@3 {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <3>;
+		};
+	};
+
 	ov5645_mipi2: ov5645_mipi2@3c {
 		compatible = "ovti,ov5645_mipi_v2";
 		reg = <0x3c>;
